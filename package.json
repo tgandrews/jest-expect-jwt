@@ -1,0 +1,29 @@
+{
+  "name": "jest-expect-jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf lib && tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest-diff": "^24.9.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.21",
+    "@types/jsonwebtoken": "^8.3.5",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "peerDependencies": {
+    "jest": "^24.0.0"
+  }
+}
