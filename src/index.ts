@@ -1,3 +1,4 @@
-import toBeTokenContaining from './toBeTokenContaining';
+import toBeTokenContaining from "./toBeTokenContaining";
+import toBeTokenExpiringIn from "./toBeTokenExpiringIn";
 
-expect.extend({ toBeTokenContaining });
+expect.extend({ toBeTokenContaining, toBeTokenExpiringIn });
