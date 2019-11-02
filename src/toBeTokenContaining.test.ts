@@ -6,8 +6,8 @@ const privateKey = fs.readFileSync(path.resolve(__dirname, "../private.pem"), {
   encoding: "utf8"
 });
 
-const sign = (contents: object | string) =>
-  jwt.sign(contents, privateKey, { algorithm: "RS256" });
+const sign = (contents: object | string, options = {}) =>
+  jwt.sign(contents, privateKey, { algorithm: "RS256", ...options });
 
 describe("toBeTokenContaining", () => {
   it("should compare object contents", () => {
@@ -21,6 +21,12 @@ describe("toBeTokenContaining", () => {
     });
     expect(sign({ a: { b: { c: { d: "e" } } } })).toBeTokenContaining({
       a: { b: { c: { d: "e" } } }
+    });
+  });
+
+  it("should ignore the expiration setting", () => {
+    expect(sign({ hello: "world" }, { expiresIn: "24h" })).toBeTokenContaining({
+      hello: "world"
     });
   });
 });

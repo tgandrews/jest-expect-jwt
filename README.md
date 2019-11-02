@@ -53,3 +53,12 @@ Add it your jest config either `jest.config.js` or `package.json`.
   ...
 }
 ```
+
+### 3. Typescript (optional)
+
+If your editor does not detect the types then you can create a `global.d.ts` with the contents as
+below.
+
+```js
+import "jest-expect-jwt";
+```

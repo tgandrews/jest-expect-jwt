@@ -45,7 +45,7 @@ export default function toBeTokenContaining(
     };
   }
 
-  const { iat: _, ...withoutIat } = decoded;
+  const { iat: _iat, exp: _exp, ...withoutIat } = decoded;
 
   const pass = this.equals(withoutIat, expected);
   return {
