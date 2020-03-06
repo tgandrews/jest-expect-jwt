@@ -29,4 +29,9 @@ describe("toBeTokenContaining", () => {
       hello: "world"
     });
   });
+
+  it("should partially match object", () => {
+    expect(sign({ a: 1, b: 2, c: 3 })).toBeTokenContaining({ b: 2 });
+    expect(sign({ a: 1, b: 2, c: 3 })).not.toBeTokenContaining({ d: 2 });
+  });
 });

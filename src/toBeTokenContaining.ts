@@ -1,5 +1,5 @@
 import diff from "jest-diff";
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 declare global {
   namespace jest {
@@ -12,7 +12,7 @@ declare global {
 export default function toBeTokenContaining(
   this: jest.MatcherContext,
   received: any,
-  expected: object
+  expected: Record<string, any>
 ): jest.CustomMatcherResult {
   if (typeof received !== "string") {
     return {
@@ -46,8 +46,7 @@ export default function toBeTokenContaining(
   }
 
   const { iat: _iat, exp: _exp, ...withoutIat } = decoded;
-
-  const pass = this.equals(withoutIat, expected);
+  const pass = this.equals(withoutIat, expect.objectContaining(expected));
   return {
     pass,
     message: () => {
