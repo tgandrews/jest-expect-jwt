@@ -1,11 +1,11 @@
 import buildJWTContentMatcher from "./util/buildJWTContentMatcher";
 
-const toBeTokenContaining = buildJWTContentMatcher(function(
+const toBeTokenMatching = buildJWTContentMatcher(function(
   this: jest.MatcherContext,
   received: Record<string, any>,
   expected: Record<string, any>
 ) {
-  return this.equals(received, expect.objectContaining(expected));
+  return this.equals(received, expected);
 });
 
-export default toBeTokenContaining;
+export default toBeTokenMatching;
