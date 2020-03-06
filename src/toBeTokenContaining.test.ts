@@ -1,6 +1,6 @@
-import * as jwt from "jsonwebtoken";
-import * as fs from "fs";
-import * as path from "path";
+import jwt from "jsonwebtoken";
+import fs from "fs";
+import path from "path";
 
 const privateKey = fs.readFileSync(path.resolve(__dirname, "../private.pem"), {
   encoding: "utf8"
@@ -28,5 +28,10 @@ describe("toBeTokenContaining", () => {
     expect(sign({ hello: "world" }, { expiresIn: "24h" })).toBeTokenContaining({
       hello: "world"
     });
+  });
+
+  it("should partially match object", () => {
+    expect(sign({ a: 1, b: 2, c: 3 })).toBeTokenContaining({ b: 2 });
+    expect(sign({ a: 1, b: 2, c: 3 })).not.toBeTokenContaining({ d: 2 });
   });
 });

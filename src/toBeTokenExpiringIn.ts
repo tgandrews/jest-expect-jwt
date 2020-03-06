@@ -1,13 +1,5 @@
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import ms from "ms";
-
-declare global {
-  namespace jest {
-    interface Matchers<R, T> {
-      toBeTokenExpiringIn(expected: string): R;
-    }
-  }
-}
 
 export default function toBeTokenExpiringIn(
   this: jest.MatcherContext,

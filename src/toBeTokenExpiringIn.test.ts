@@ -1,6 +1,6 @@
-import * as jwt from "jsonwebtoken";
-import * as fs from "fs";
-import * as path from "path";
+import jwt from "jsonwebtoken";
+import fs from "fs";
+import path from "path";
 
 const privateKey = fs.readFileSync(path.resolve(__dirname, "../private.pem"), {
   encoding: "utf8"
