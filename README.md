@@ -6,7 +6,8 @@ A nicer way to compare JWT properties in tests
 
 ### `toBeTokenContaining`
 
-It can be used to compare the object encoded within the token excluding the `iat`.
+It can be used to partially compare the object encoded within the token excluding the `iat` or `exp`.  
+If you want an exact match then use [toBeTokenMatching](#toBeTokenMatching)
 
 Example:
 
@@ -24,6 +25,17 @@ Example:
 
 ```js
 expect(token).toBeExpiringIn("24h");
+```
+
+### `toBeTokenMatching`
+
+It can be used to exactly compare the object encoded within the token excluding the `iat` or `exp`.  
+If you want a partial match then use [toBeTokenContaining](#toBeTokenContaining)
+
+Example:
+
+```js
+expect(token).toBeTokenMatching({ hello: "world" });
 ```
 
 ## Setup
