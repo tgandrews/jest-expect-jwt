@@ -12,8 +12,9 @@
     "prepare": "npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "tgandrews",
+  "repository": "tgandrews/jest-expect-jwt",
+  "license": "MIT",
   "dependencies": {
     "jest-diff": "^25.1.0",
     "jsonwebtoken": "^8.5.1",
