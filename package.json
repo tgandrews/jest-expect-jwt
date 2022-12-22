@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "jest-diff": "^25.1.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "ms": "^2.1.2"
   },
   "devDependencies": {
